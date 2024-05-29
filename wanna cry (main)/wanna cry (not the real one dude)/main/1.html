@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>time left</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+	    background-color: #841011;
+	    color: white;
+        }
+        #timer {
+            font-size: 48px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div id="timer">1728000</div>
+    <div id="message">yep that's right only two days left</div>
+    <div id="message">better start saving for $300</div>
+    <script>
+        // Set the initial timer value
+        let timeLeft = 1728000;
+
+
+        const timerElement = document.getElementById('timer');
+
+        // Function to update the timer
+        function updateTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+            } else {
+                clearInterval(timerInterval);
+                timerElement.textContent = 'Time\'s up! now all your files are gone :)';
+            }
+        }
+        const timerInterval = setInterval(updateTimer, 100);
+    </script>
+</body>
+</html>
